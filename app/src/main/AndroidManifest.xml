@@ -7,6 +7,10 @@
          host: core is what does the networking and runs the sync/download worker. They merge in
          from there — see core/src/main/AndroidManifest.xml. -->
 
+    <!-- Fire OS 6 (API 25) : libmpv déclare minSdk 26 mais l'app a un fallback automatique
+         vers ExoPlayer si le moteur mpv échoue. Force la fusion, à tester sur l'appareil. -->
+    <uses-sdk tools:overrideLibrary="dev.jdtech.mpv" />
+
     <!-- In-app updates: hand the downloaded release APK to the system installer. -->
     <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
 
