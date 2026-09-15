@@ -45,7 +45,7 @@ android {
 
     defaultConfig {
         applicationId = "tv.own.owntv"
-        minSdk = 23
+        minSdk = 24
         targetSdk = 36
         // CI injects these from the git tag (see .github/workflows/android.yml) so releases never
         // need a manual edit here. The fallbacks are only used for local/debug builds — pinned HIGH
