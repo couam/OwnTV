@@ -45,7 +45,7 @@ android {
 
     defaultConfig {
         applicationId = "tv.own.owntv"
-        minSdk = 26
+        minSdk = 23
         targetSdk = 36
         // CI injects these from the git tag (see .github/workflows/android.yml) so releases never
         // need a manual edit here. The fallbacks are only used for local/debug builds — pinned HIGH
@@ -229,6 +229,7 @@ android {
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
+        isCoreLibraryDesugaringEnabled = true
     }
 }
 
@@ -345,6 +346,7 @@ dependencies {
     // The shared data/settings/sync module. It lives in its own repository now — see
     // https://github.com/ahXN00/OwnTV_Core. Set owntv.corePath in ~/.gradle/gradle.properties to
     // build against its source instead of this pinned version.
+    coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.1.4")
     implementation(libs.owntv.core)
 
     // The shared playback engine. The TV HUD in app/player/** drives it; it renders nothing itself,
